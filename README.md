@@ -289,6 +289,10 @@ Use:
 
 This prints pma-voice state and voice convars to F8.
 
+## License
+
+This project is licensed under the MIT License. You are free to use, modify, and distribute this script, including for commercial use, as long as the original license notice is included.
+
 ## Credits
 
 **Skeezle Scripts**
