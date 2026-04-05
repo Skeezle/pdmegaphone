@@ -4,7 +4,7 @@ Police vehicle megaphone for **QBX/Qbox** using **pma-voice**, **Native Audio**,
 
 This resource lets police drive approved vehicles and use a **hold-to-talk megaphone** by holding **Left Shift**. While active, voice range is boosted, nearby players hear a megaphone-style filter, and optional broadcast text can be sent with `/m`.
 
-Based on the included manifest, config, client, and server files. fileciteturn0file0L1-L15 fileciteturn0file1L1-L89 fileciteturn0file2L1-L77 fileciteturn0file3L1-L318
+Based on the included manifest, config, client, and server files.
 
 ## Features
 
@@ -50,23 +50,23 @@ setr voice_enableSubmix 1
 
 ## Resource Info
 
-From `fxmanifest.lua`: fileciteturn0file0L1-L15
+From `fxmanifest.lua`:
 
 - **Name:** `skeezle_pdmegaphone`
-- **Author:** `Skeezle Scripts`
+- **Author:** `Skeezle`
 - **Version:** `1.2.1`
 - **Description:** Police vehicle megaphone for QBX/Qbox using pma-voice native audio and submix
 
 ## How It Works
 
-The script checks all of the following before activation: fileciteturn0file3L40-L68 fileciteturn0file3L70-L77
+The script checks all of the following before activation: 
 
 - You must be in a vehicle
 - You must be the **driver**
 - Your **job** must be allowed
 - The vehicle must be on the allowlist
 
-When active, the script: fileciteturn0file3L214-L274
+When active, the script:
 
 - boosts voice proximity
 - keeps nearby listeners updated
@@ -80,7 +80,7 @@ When active, the script: fileciteturn0file3L214-L274
 - **`/m your message`** = send megaphone text broadcast while holding Shift
 - **`/mpdebug`** = test/debug command
 
-Control handling and commands are implemented in the client file. fileciteturn0file3L282-L318
+Control handling and commands are implemented in the client file.
 
 ## Commands
 
@@ -88,7 +88,7 @@ Control handling and commands are implemented in the client file. filecite
 
 Sends a text broadcast to players within megaphone range.
 
-Rules: fileciteturn0file1L43-L52 fileciteturn0file3L298-L309
+Rules:
 
 - You must be actively holding Shift first
 - You must be driving an allowed vehicle
@@ -97,11 +97,11 @@ Rules: fileciteturn0file1L43-L52 fileciteturn0file3L298-L30
 
 ### `/mpdebug`
 
-Prints debug info to F8 and tests parts of the megaphone setup. fileciteturn0file3L311-L318
+Prints debug info to F8 and tests parts of the megaphone setup. 
 
 ## Configuration
 
-All main settings are in `config.lua`. fileciteturn0file2L1-L77
+All main settings are in `config.lua`. 
 
 ### Allowed Jobs
 
@@ -113,7 +113,7 @@ Config.AllowedJobs = {
 }
 ```
 
-Only players with these jobs can use the megaphone by default. fileciteturn0file2L3-L8
+Only players with these jobs can use the megaphone by default. 
 
 ### Allowed Vehicles
 
@@ -144,7 +144,7 @@ Config.AllowedVehicleHashes = {
 }
 ```
 
-Vehicle config is defined here. fileciteturn0file2L10-L33
+Vehicle config is defined here. 
 
 ### Keybind
 
@@ -152,7 +152,7 @@ Vehicle config is defined here. fileciteturn0file2L10-L33
 Config.Keybind = 'LSHIFT'
 ```
 
-The script uses direct control detection for Left Shift. fileciteturn0file2L35-L36
+The script uses direct control detection for Left Shift. 
 
 ### Range and Timing
 
@@ -166,7 +166,7 @@ Config.ToggleCooldownMs = 1500
 - `HearingRange3D` = voice distance while active
 - `ToggleCooldownMs` = delay before reactivation
 
-Defined in config here. fileciteturn0file2L38-L41
+Defined in config here.
 
 ### pma-voice Integration
 
@@ -175,7 +175,7 @@ Config.UsePmaVoiceProximityBoost = true
 Config.PreferStateBagProximity = true
 ```
 
-The script first attempts to use pma-voice proximity override, then falls back to state bag proximity if needed. fileciteturn0file2L43-L45 fileciteturn0file3L98-L147
+The script first attempts to use pma-voice proximity override, then falls back to state bag proximity if needed. 
 
 ### Chat Broadcast
 
@@ -184,7 +184,7 @@ Config.ShowChat = true
 Config.ChatFormat = '^3[MEGAPHONE]^7 %s'
 ```
 
-Controls whether `/m` messages appear in chat and how they are formatted. fileciteturn0file2L47-L49
+Controls whether `/m` messages appear in chat and how they are formatted.
 
 ### Squelch Sound
 
@@ -194,7 +194,7 @@ Config.SquelchOnToggle = true
 Config.SquelchOnTransmitStart = false
 ```
 
-The script also includes a fallback frontend sound if the primary sound does not play reliably. fileciteturn0file2L51-L62
+The script also includes a fallback frontend sound if the primary sound does not play reliably. 
 
 ### Submix / Megaphone Filter
 
@@ -216,7 +216,7 @@ Config.Submix = {
 }
 ```
 
-These settings control the megaphone audio effect applied to listeners. fileciteturn0file2L64-L75 fileciteturn0file3L149-L201
+These settings control the megaphone audio effect applied to listeners.
 
 ### Misc
 
@@ -228,11 +228,11 @@ Config.DisableSprintWhileActive = true
 - `Debug` prints extra information to F8
 - `DisableSprintWhileActive` prevents sprint while holding the megaphone
 
-Defined here. fileciteturn0file2L77-L77
+Defined here.
 
 ## Server Events
 
-The server handles these main network events: fileciteturn0file1L43-L89
+The server handles these main network events: 
 
 - `skeezle_pdmegaphone:server:requestBroadcast`
 - `skeezle_pdmegaphone:server:talkStart`
@@ -265,7 +265,7 @@ Check the following:
 - `voice_useNativeAudio` is set to `true`
 - `voice_enableSubmix` is set to `1`
 
-Relevant checks exist in the client and server files. fileciteturn0file1L3-L24 fileciteturn0file3L40-L77
+Relevant checks exist in the client and server files. 
 
 ### `/m` does not send
 
@@ -287,7 +287,7 @@ Use:
 /mpdebug
 ```
 
-This prints pma-voice state and voice convars to F8. fileciteturn0file3L311-L318
+This prints pma-voice state and voice convars to F8.
 
 ## Credits
 
